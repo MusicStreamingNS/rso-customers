@@ -14,7 +14,7 @@ cache:
   - $HOME/.m2
 
 env:
-  - DOCKER_IMAGE=nemanjas23/rso-customers:0.1
+  - DOCKER_IMAGE=jmezna/rso-customers:0.9
 
 script:
   - mvn clean package -U

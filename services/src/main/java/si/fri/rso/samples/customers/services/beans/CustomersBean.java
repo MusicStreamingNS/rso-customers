@@ -3,6 +3,7 @@ package si.fri.rso.samples.customers.services.beans;
 import com.kumuluz.ee.discovery.annotations.DiscoverService;
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import si.fri.rso.samples.customers.models.dtos.Order;
 import si.fri.rso.samples.customers.models.entities.Customer;
 import si.fri.rso.samples.customers.services.configuration.AppProperties;
@@ -133,6 +134,7 @@ public class CustomersBean {
         return true;
     }
 
+    @Timed
     public List<Order> getOrders(Integer customerId) {
 
         if (appProperties.isExternalServicesEnabled() && baseUrl.isPresent()) {
