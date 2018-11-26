@@ -13,7 +13,7 @@ spec:
         app: customer
     spec:
       containers:
-      - image: jmezna/rso-customers:0.9
+      - image: nemanjas23/rso-customers:0.1
         name: customer
         env:
         - name: KUMULUZEE_DISCOVERY_CLUSTER
