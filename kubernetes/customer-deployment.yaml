@@ -50,3 +50,44 @@ spec:
     targetPort: 8080
   selector:
     app: customer
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-customers-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres-customers
+    spec:
+      containers:
+      - image: centos/postgresql-94-centos7
+        name: postgres-customers
+        env:
+        - name: POSTGRESQL_USER
+          value: dbuser
+        - name: POSTGRESQL_PASSWORD
+          value: postgres
+        - name: POSTGRESQL_DATABASE
+          value: customer
+        ports:
+        - containerPort: 5432
+protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-customers
+spec:
+  type: ClusterIP
+  ports:
+  - port: 5432
+    protocol: TCP
+    targetPort: 5432
+  selector:
+app: postgres-customers
