@@ -22,29 +22,16 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <kumuluzee.version>2.4.1</kumuluzee.version>
-        <kumuluzee-rest.version>1.1.0</kumuluzee-rest.version>
-        <kumuluzee-config.version>1.0.0</kumuluzee-config.version>
-        <kumuluzee-discovery.version>1.1.0-SNAPSHOT</kumuluzee-discovery.version>
-        <kumuluzee-health.version>1.0.0-SNAPSHOT</kumuluzee-health.version>
-        <kumuluzee-metrics.version>1.0.0-SNAPSHOT</kumuluzee-metrics.version>
+        <kumuluzee.version>3.0.0</kumuluzee.version>
+        <kumuluzee-rest.version>1.2.3</kumuluzee-rest.version>
+        <kumuluzee-config.version>1.1.0</kumuluzee-config.version>
+        <kumuluzee-discovery.version>1.1.0</kumuluzee-discovery.version>
+        <kumuluzee-logs.version>1.3.0</kumuluzee-logs.version>
+        <kumuluzee-health.version>1.0.1</kumuluzee-health.version>
+        <kumuluzee-metrics.version>1.1.1</kumuluzee-metrics.version>
 
-        <postgresql.version>42.1.4</postgresql.version>
+        <postgresql.version>42.2.5</postgresql.version>
     </properties>
-
-    <repositories>
-        <repository>
-            <id>sonatype-snapshots</id>
-            <name>Sonatype Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
     <dependencyManagement>
         <dependencies>
@@ -60,16 +47,10 @@
                 <groupId>com.kumuluz.ee.rest</groupId>
                 <artifactId>kumuluzee-rest-core</artifactId>
                 <version>${kumuluzee-rest.version}</version>
-
             </dependency>
             <dependency>
-                <groupId>com.kumuluz.ee.logs</groupId>
-                <artifactId>kumuluzee-logs-log4j2</artifactId>
-                <version>1.3.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.kumuluz.ee.config</groupId>
                 <artifactId>kumuluzee-config-etcd</artifactId>
+                <groupId>com.kumuluz.ee.config</groupId>
                 <version>${kumuluzee-config.version}</version>
             </dependency>
             <dependency>
@@ -77,7 +58,11 @@
                 <artifactId>kumuluzee-discovery-etcd</artifactId>
                 <version>${kumuluzee-discovery.version}</version>
             </dependency>
-
+            <dependency>
+                <artifactId>kumuluzee-logs-log4j2</artifactId>
+                <groupId>com.kumuluz.ee.logs</groupId>
+                <version>${kumuluzee-logs.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.kumuluz.ee.health</groupId>
                 <artifactId>kumuluzee-health</artifactId>
@@ -94,20 +79,21 @@
                 <artifactId>postgresql</artifactId>
                 <version>${postgresql.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>si.fri.rso.samples</groupId>
                 <artifactId>customers-api</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>si.fri.rso.samples</groupId>
                 <artifactId>customers-models</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>si.fri.rso.samples</groupId>
                 <artifactId>customers-services</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

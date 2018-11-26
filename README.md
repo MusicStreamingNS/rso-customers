@@ -3,14 +3,7 @@
 ## Prerequisites
 
 ```bash
-docker run -d --name rso-customers -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=customer -p 5432:5432 postgres:latest
+docker run -d --name pg-customers -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=customer -p 5432:5432 postgres:10.5
 ```
-
-## Run application in Docker
-
-```bash
-docker run -p 8080:8080 -e KUMULUZEE_CONFIG_ETCD_HOSTS=http://192.168.99.100:2379 amela/customers
-```
-
 ## Travis status
 [![Build Status](https://travis-ci.org/cloud-computing-project/customers.svg?branch=master)](https://travis-ci.org/MusicStreamingNS/rso-customers)
