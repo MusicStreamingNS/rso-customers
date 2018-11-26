@@ -20,32 +20,25 @@
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-jax-rs-jersey</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.kumuluz.ee</groupId>
-            <artifactId>kumuluzee-json-b-yasson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.kumuluz.ee</groupId>
-            <artifactId>kumuluzee-json-p-jsonp</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.kumuluz.ee.rest</groupId>
             <artifactId>kumuluzee-rest-core</artifactId>
         </dependency>
         <dependency>
-            <artifactId>kumuluzee-config-etcd</artifactId>
-            <groupId>com.kumuluz.ee.config</groupId>
+            <groupId>com.kumuluz.ee.logs</groupId>
+            <artifactId>kumuluzee-logs-log4j2</artifactId>
         </dependency>
         <dependency>
             <groupId>com.kumuluz.ee.discovery</groupId>
             <artifactId>kumuluzee-discovery-etcd</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.kumuluz.ee.metrics</groupId>
-            <artifactId>kumuluzee-metrics-core</artifactId>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20171018</version>
         </dependency>
-
+        
         <dependency>
             <groupId>si.fri.rso.samples</groupId>
             <artifactId>customers-models</artifactId>

@@ -1,11 +1,12 @@
 package si.fri.rso.samples.customers.api.v1.resources;
 
 import com.kumuluz.ee.logs.cdi.Log;
-import si.fri.rso.samples.customers.models.entities.Customer;
-import si.fri.rso.samples.customers.services.beans.CustomersBean;
+import si.fri.rso.samples.customers.models.Customer;
+import si.fri.rso.samples.customers.services.CustomersBean;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import org.eclipse.microprofile.metrics.annotation.Metered;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -13,11 +14,12 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
-@Log
-@ApplicationScoped
+
+@RequestScoped
 @Path("/customers")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@Log
 public class CustomersResource {
 
     @Inject
@@ -27,6 +29,7 @@ public class CustomersResource {
     protected UriInfo uriInfo;
 
     @GET
+    @Metered
     public Response getCustomers() {
 
         List<Customer> customers = customersBean.getCustomers();
@@ -46,8 +49,8 @@ public class CustomersResource {
     }
 
     @GET
-    @Path("/{customerId}")
-    public Response getCustomer(@PathParam("customerId") Integer customerId) {
+    @Path("{customerId}")
+    public Response getCustomer(@PathParam("customerId") String customerId) {
 
         Customer customer = customersBean.getCustomer(customerId);
 
@@ -77,7 +80,7 @@ public class CustomersResource {
 
     @PUT
     @Path("{customerId}")
-    public Response putZavarovanec(@PathParam("customerId") String customerId, Customer customer) {
+    public Response putCustomer(@PathParam("customerId") String customerId, Customer customer) {
 
         customer = customersBean.putCustomer(customerId, customer);
 
