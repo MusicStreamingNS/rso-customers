@@ -61,9 +61,9 @@ public class DemoResource {
     public Response info() {
 
         JsonObject json = Json.createObjectBuilder()
-                .add("clani", Json.createArrayBuilder().add("jm1234"))
-                .add("opis_projekta", "Nas projekt implementira aplikacijo za upravljanje naročil.")
-                .add("mikrostoritve", Json.createArrayBuilder().add("http://35.204.91.158:8081/v1/orders"))
+                .add("clani", Json.createArrayBuilder().add("ns8143"))
+                .add("opis_projekta", "My project implements application for music streaming.")
+                .add("mikrostoritve", Json.createArrayBuilder().add("http://159.122.187.177:32205/v1/customers"))
                 .add("github", Json.createArrayBuilder().add("https://github.com/jmezna/rso-customers"))
                 .add("travis", Json.createArrayBuilder().add("https://travis-ci.org/jmezna/rso-customers"))
                 .add("dockerhub", Json.createArrayBuilder().add("https://hub.docker.com/r/jmezna/rso-customers"))
