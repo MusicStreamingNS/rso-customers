@@ -36,7 +36,7 @@ public class CustomersResource {
         return Response.ok(customers).build();
     }
     @GET
-    @Path("/info")
+    @Path("info")
     public Response info() {
 
         JsonObject json = Json.createObjectBuilder()
