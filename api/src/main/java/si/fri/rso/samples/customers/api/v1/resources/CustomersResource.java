@@ -36,20 +36,20 @@ public class CustomersResource {
         return Response.ok(customers).build();
     }
     @GET
-    @Path("info")
+    @Path("/info")
     public Response info() {
 
-//        JsonObject json = Json.createObjectBuilder()
-//                .add("clani", Json.createArrayBuilder().add("jm1234"))
-//                .add("opis_projekta", "Nas projekt implementira aplikacijo za upravljanje naročil.")
-//                .add("mikrostoritve", Json.createArrayBuilder().add("http://35.204.91.158:8081/v1/orders"))
-//                .add("github", Json.createArrayBuilder().add("https://github.com/jmezna/rso-customers"))
-//                .add("travis", Json.createArrayBuilder().add("https://travis-ci.org/jmezna/rso-customers"))
-//                .add("dockerhub", Json.createArrayBuilder().add("https://hub.docker.com/r/jmezna/rso-customers"))
-//                .build();
+        JsonObject json = Json.createObjectBuilder()
+                .add("clani", Json.createArrayBuilder().add("jm1234"))
+                .add("opis_projekta", "Nas projekt implementira aplikacijo za upravljanje naročil.")
+                .add("mikrostoritve", Json.createArrayBuilder().add("http://35.204.91.158:8081/v1/orders"))
+                .add("github", Json.createArrayBuilder().add("https://github.com/jmezna/rso-customers"))
+                .add("travis", Json.createArrayBuilder().add("https://travis-ci.org/jmezna/rso-customers"))
+                .add("dockerhub", Json.createArrayBuilder().add("https://hub.docker.com/r/jmezna/rso-customers"))
+                .build();
 
 
-        return Response.status(Response.Status.OK).entity("").build();
+        return Response.ok(json.toString()).build();
     }
     @GET
     @Path("/filtered")
