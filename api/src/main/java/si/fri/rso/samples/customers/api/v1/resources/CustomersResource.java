@@ -6,6 +6,8 @@ import si.fri.rso.samples.customers.services.beans.CustomersBean;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -103,4 +105,21 @@ public class CustomersResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
+    @GET
+    @Path("info")
+    public Response info() {
+
+        JsonObject json = Json.createObjectBuilder()
+                .add("clani", Json.createArrayBuilder().add("jm1234"))
+                .add("opis_projekta", "Nas projekt implementira aplikacijo za upravljanje naročil.")
+                .add("mikrostoritve", Json.createArrayBuilder().add("http://35.204.91.158:8081/v1/orders"))
+                .add("github", Json.createArrayBuilder().add("https://github.com/jmezna/rso-customers"))
+                .add("travis", Json.createArrayBuilder().add("https://travis-ci.org/jmezna/rso-customers"))
+                .add("dockerhub", Json.createArrayBuilder().add("https://hub.docker.com/r/jmezna/rso-customers"))
+                .build();
+
+
+        return Response.ok(json.toString()).build();
+    }
+
 }
